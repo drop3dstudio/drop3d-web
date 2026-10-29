@@ -176,9 +176,9 @@
   
 <!-- Navbar with Dedicated Multi-Page Navigation -->
   <header class="bg-drop-black/95 backdrop-blur-md border-b border-drop-border sticky top-[33px] z-30 transition-all">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14 md:h-20">
       
-      <!-- Desktop Navigation Links with Active Page Indicators -->
+      <!-- Desktop Navigation Links (Visible only on desktop) -->
       <nav class="hidden md:flex items-center gap-2 text-sm font-semibold">
         <a href="#inicio" data-target="inicio" onclick="navigateTo('inicio'); return false;" class="desktop-nav-link px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-drop-neon/15 text-drop-neon border border-drop-neon/30 transition-all">Inicio</a>
         <a href="#drops" data-target="drops" onclick="navigateTo('drops'); return false;" class="desktop-nav-link px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:bg-drop-card border border-transparent transition-all">Drops</a>
@@ -188,10 +188,19 @@
         <a href="#faq" data-target="faq" onclick="navigateTo('faq'); return false;" class="desktop-nav-link px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:bg-drop-card border border-transparent transition-all">FAQ</a>
       </nav>
 
-      <!-- Right Side: Aesthetic Cotizar Ahora Button & Mobile Toggle -->
-      <div class="flex items-center justify-end gap-3">
-        <!-- Botón Cotizar Ahora (Estética Neón DROP 3D) -->
-        <a href="#personalizados" onclick="navigateTo('personalizados'); return false;" class="group relative inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 via-drop-neon to-emerald-400 hover:from-emerald-400 hover:to-teal-300 text-drop-black font-extrabold px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-xl text-xs sm:text-sm shadow-md shadow-emerald-500/25 border border-emerald-300/40 glow-green-sm transition-all duration-300 transform hover:scale-[1.03] active:scale-95 cursor-pointer">
+      <!-- Mobile Top Navigation Bar (Visible only on mobile: barra de navegación arriba) -->
+      <nav class="md:hidden flex items-center gap-1.5 overflow-x-auto no-scrollbar w-full py-1.5">
+        <a href="#inicio" data-target="inicio" onclick="navigateTo('inicio'); return false;" class="mobile-top-link shrink-0 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-drop-neon/15 text-drop-neon border border-drop-neon/30 transition-all">Inicio</a>
+        <a href="#drops" data-target="drops" onclick="navigateTo('drops'); return false;" class="mobile-top-link shrink-0 px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-drop-card border border-transparent transition-all">Drops</a>
+        <a href="#personalizados" data-target="personalizados" onclick="navigateTo('personalizados'); return false;" class="mobile-top-link shrink-0 px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-drop-card border border-transparent transition-all">Personalizados</a>
+        <a href="#protocolos" data-target="protocolos" onclick="navigateTo('protocolos'); return false;" class="mobile-top-link shrink-0 px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-drop-card border border-transparent transition-all">Protocolos</a>
+        <a href="#entregas" data-target="entregas" onclick="navigateTo('entregas'); return false;" class="mobile-top-link shrink-0 px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-drop-card border border-transparent transition-all">Entregas</a>
+        <a href="#faq" data-target="faq" onclick="navigateTo('faq'); return false;" class="mobile-top-link shrink-0 px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-drop-card border border-transparent transition-all">FAQ</a>
+      </nav>
+
+      <!-- Desktop Right Side: Cotizar Ahora Button (Visible only on desktop) -->
+      <div class="hidden md:flex items-center justify-end gap-3 shrink-0">
+        <a href="#personalizados" onclick="navigateTo('personalizados'); return false;" class="group relative inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 via-drop-neon to-emerald-400 hover:from-emerald-400 hover:to-teal-300 text-drop-black font-extrabold px-5 py-2.5 rounded-xl text-xs sm:text-sm shadow-md shadow-emerald-500/25 border border-emerald-300/40 glow-green-sm transition-all duration-300 transform hover:scale-[1.03] active:scale-95 cursor-pointer">
           <span class="relative flex h-2 w-2">
             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-drop-black opacity-75"></span>
             <span class="relative inline-flex rounded-full h-2 w-2 bg-drop-black"></span>
@@ -199,28 +208,8 @@
           <svg class="w-4 h-4 text-drop-black transition-transform group-hover:rotate-12 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
           <span class="font-display tracking-tight">Cotizar Ahora</span>
         </a>
-
-        <!-- Mobile Drawer Toggle -->
-        <button id="btnMobileMenu" type="button" class="md:hidden p-2 rounded-xl bg-drop-card border border-drop-border text-slate-300 hover:text-white cursor-pointer transition-colors" aria-label="Abrir menú de navegación">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-        </button>
       </div>
 
-    </div>
-
-    <!-- Mobile Drawer Menu -->
-    <div id="mobileDrawer" class="hidden md:hidden border-t border-drop-border bg-drop-black px-4 pt-3 pb-5 space-y-2">
-      <a href="#inicio" data-target="inicio" onclick="navigateTo('inicio'); return false;" class="mobile-drawer-link block py-2 px-3 rounded-lg text-sm font-semibold text-slate-300 hover:text-drop-neon hover:bg-drop-card">Inicio</a>
-      <a href="#drops" data-target="drops" onclick="navigateTo('drops'); return false;" class="mobile-drawer-link block py-2 px-3 rounded-lg text-sm font-semibold text-slate-300 hover:text-drop-neon hover:bg-drop-card">Drops (En Stock)</a>
-      <a href="#personalizados" data-target="personalizados" onclick="navigateTo('personalizados'); return false;" class="mobile-drawer-link block py-2 px-3 rounded-lg text-sm font-semibold text-slate-300 hover:text-drop-neon hover:bg-drop-card">Personalizados</a>
-      <a href="#protocolos" data-target="protocolos" onclick="navigateTo('protocolos'); return false;" class="mobile-drawer-link block py-2 px-3 rounded-lg text-sm font-semibold text-slate-300 hover:text-drop-neon hover:bg-drop-card">Protocolos de Calidad</a>
-      <a href="#entregas" data-target="entregas" onclick="navigateTo('entregas'); return false;" class="mobile-drawer-link block py-2 px-3 rounded-lg text-sm font-semibold text-slate-300 hover:text-drop-neon hover:bg-drop-card">Entregas Reales</a>
-      <a href="#faq" data-target="faq" onclick="navigateTo('faq'); return false;" class="mobile-drawer-link block py-2 px-3 rounded-lg text-sm font-semibold text-slate-300 hover:text-drop-neon hover:bg-drop-card">Preguntas Frecuentes</a>
-      <div class="pt-2">
-        <a href="#personalizados" onclick="navigateTo('personalizados'); return false;" class="w-full flex items-center justify-center gap-2 bg-drop-neon text-drop-black font-extrabold py-2.5 rounded-xl text-sm">
-          Cotiza tu Pieza por WhatsApp
-        </a>
-      </div>
     </div>
   </header>
 
@@ -1382,29 +1371,17 @@
   
 
 
-  <!-- MOBILE BOTTOM APP BAR (Fixed for 1-Thumb Navigation) -->
-  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-drop-black/95 backdrop-blur-lg border-t border-drop-border px-2 py-1.5 flex justify-around items-center shadow-2xl">
-    <button type="button" data-target="inicio" onclick="navigateTo('inicio')" class="mobile-bottom-link flex flex-col items-center justify-center py-1 text-drop-neon font-bold transition-all w-16">
-      <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-      <span class="text-[10px]">Inicio</span>
-    </button>
-    <button type="button" data-target="drops" onclick="navigateTo('drops')" class="mobile-bottom-link flex flex-col items-center justify-center py-1 text-slate-400 hover:text-slate-200 font-medium transition-all w-16">
-      <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
-      <span class="text-[10px]">Drops</span>
-    </button>
-    <button type="button" data-target="personalizados" onclick="navigateTo('personalizados')" class="mobile-bottom-link flex flex-col items-center justify-center py-1 text-slate-400 hover:text-slate-200 font-medium transition-all w-16">
-      <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
-      <span class="text-[10px]">Cotizar</span>
-    </button>
-    <button type="button" data-target="entregas" onclick="navigateTo('entregas')" class="mobile-bottom-link flex flex-col items-center justify-center py-1 text-slate-400 hover:text-slate-200 font-medium transition-all w-16">
-      <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-      <span class="text-[10px]">Entregas</span>
-    </button>
-    <button type="button" data-target="faq" onclick="navigateTo('faq')" class="mobile-bottom-link flex flex-col items-center justify-center py-1 text-slate-400 hover:text-slate-200 font-medium transition-all w-16">
-      <svg class="w-5 h-5 mb-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-      <span class="text-[10px]">FAQ</span>
-    </button>
-  </nav>
+  <!-- MOBILE BOTTOM STICKY BAR: BOTÓN COTIZAR AHORA (Solo en versión móvil) -->
+  <aside aria-label="Cotización rápida móvil" class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-drop-black/95 backdrop-blur-lg border-t border-drop-border px-4 py-2.5 shadow-[0_-10px_25px_rgba(0,0,0,0.6)]">
+    <a href="#personalizados" onclick="navigateTo('personalizados'); return false;" class="w-full flex items-center justify-center gap-2.5 bg-gradient-to-r from-emerald-500 via-drop-neon to-emerald-400 hover:from-emerald-400 hover:to-teal-300 text-drop-black font-extrabold py-3 px-5 rounded-2xl text-sm shadow-lg shadow-emerald-500/25 border border-emerald-300/40 glow-green-sm active:scale-95 transition-all">
+      <span class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-drop-black opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-drop-black"></span>
+      </span>
+      <svg class="w-5 h-5 text-drop-black shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+      <span class="font-display tracking-tight text-sm font-extrabold">Cotizar Ahora por WhatsApp</span>
+    </a>
+  </aside>
 
 
   
@@ -1446,13 +1423,16 @@
         }
       });
 
-      // Update Mobile Bottom Bar links
-      document.querySelectorAll('.mobile-bottom-link').forEach(link => {
+      // Update Mobile Top Navbar links (Barra de navegación arriba en móvil)
+      document.querySelectorAll('.mobile-top-link').forEach(link => {
         const target = link.getAttribute('data-target');
         if (target === pageId) {
-          link.className = 'mobile-bottom-link flex flex-col items-center justify-center py-1 text-drop-neon font-bold transition-all w-16';
+          link.className = 'mobile-top-link shrink-0 px-3.5 py-1.5 rounded-xl text-xs font-bold bg-drop-neon/15 text-drop-neon border border-drop-neon/30 transition-all';
+          try {
+            link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          } catch (e) {}
         } else {
-          link.className = 'mobile-bottom-link flex flex-col items-center justify-center py-1 text-slate-400 hover:text-slate-200 font-medium transition-all w-16';
+          link.className = 'mobile-top-link shrink-0 px-3.5 py-1.5 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-drop-card border border-transparent transition-all';
         }
       });
 
@@ -1466,11 +1446,7 @@
         }
       });
 
-      // Close mobile drawer if open
-      const drawer = document.getElementById('mobileDrawer');
-      if (drawer && !drawer.classList.contains('hidden')) {
-        drawer.classList.add('hidden');
-      }
+
 
       // Scroll smoothly to top
       window.scrollTo({ top: 0, behavior: 'instant' });
@@ -1503,13 +1479,7 @@
 
     // Mobile menu toggle setup
     document.addEventListener('DOMContentLoaded', () => {
-      const btn = document.getElementById('btnMobileMenu');
-      const drawer = document.getElementById('mobileDrawer');
-      if (btn && drawer) {
-        btn.addEventListener('click', () => {
-          drawer.classList.toggle('hidden');
-        });
-      }
+
 
       // Initial route
       const initialHash = window.location.hash.replace('#', '') || 'inicio';
@@ -1679,30 +1649,12 @@
 
 
 
-    // Setup Drawer Menu
-    function setupDrawer() {
-      const btn = document.getElementById("btnMobileMenu");
-      const drawer = document.getElementById("mobileDrawer");
-      const links = document.querySelectorAll(".mobile-nav-link");
 
-      if (!btn || !drawer) return;
-
-      btn.addEventListener("click", () => {
-        drawer.classList.toggle("hidden");
-      });
-
-      links.forEach(l => {
-        l.addEventListener("click", () => {
-          drawer.classList.add("hidden");
-        });
-      });
-    }
 
     // Global init
     window.addEventListener("DOMContentLoaded", () => {
       setupFilters();
       setupStockButtons();
-      setupDrawer();
       setupCitySelect();
 
       // Setup tech tabs in Personalizados
