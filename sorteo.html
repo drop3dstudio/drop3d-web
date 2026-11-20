@@ -471,9 +471,19 @@
       });
     }
 
+    function toBase64Url(str) {
+      const bytes = new TextEncoder().encode(str);
+      let bin = "";
+      bytes.forEach(b => { bin += String.fromCharCode(b); });
+      return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+    }
+
     async function callAppsScript(paramsObj) {
-      const params = new URLSearchParams({ ...paramsObj, _t: String(Date.now()) });
-      const url = `${GOOGLE_SCRIPT_URL}?${params.toString()}`;
+      const query = new URLSearchParams({ _t: String(Date.now()) });
+      if (paramsObj && Object.keys(paramsObj).length > 0) {
+        query.set("p", toBase64Url(JSON.stringify(paramsObj)));
+      }
+      const url = `${GOOGLE_SCRIPT_URL}?${query.toString()}`;
       try {
         const resp = await fetch(url);
         if (!resp.ok) throw new Error("HTTP " + resp.status);
@@ -534,15 +544,7 @@
         try {
           let result;
           if (GOOGLE_SCRIPT_URL) {
-            result = await callAppsScript({
-              action: "register",
-              nombre: payload.nombre,
-              instagram: payload.instagram,
-              telefono: payload.telefono,
-              correo: payload.correo,
-              edad: payload.edad,
-              ciudad: payload.ciudad
-            });
+            result = await callAppsScript(payload);
           } else {
             result = registerLocally(payload);
           }
@@ -563,7 +565,7 @@
             errBox.classList.remove("hidden");
           }
         } catch (err) {
-          errBox.textContent = "Error de conexión al asignar el número. Intenta de nuevo.";
+          errBox.textContent = "Error de conexión al asignar el número (" + (err && err.message ? err.message : "red") + "). Intenta de nuevo.";
           errBox.classList.remove("hidden");
         } finally {
           btn.disabled = false;
