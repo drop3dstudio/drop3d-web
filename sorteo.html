@@ -447,7 +447,7 @@
         return;
       }
       try {
-        const resp = await fetch(GOOGLE_SCRIPT_URL);
+        const resp = await fetch(GOOGLE_SCRIPT_URL, { cache: "no-store" });
         const data = await resp.json();
         if (data && data.stats) updateStatsUI(data.stats);
       } catch (err) {
@@ -492,10 +492,18 @@
         try {
           let result;
           if (GOOGLE_SCRIPT_URL) {
-            const resp = await fetch(GOOGLE_SCRIPT_URL, {
-              method: "POST",
-              headers: { "Content-Type": "text/plain;charset=utf-8" },
-              body: JSON.stringify(payload)
+            const params = new URLSearchParams({
+              action: "register",
+              nombre: payload.nombre,
+              instagram: payload.instagram,
+              telefono: payload.telefono,
+              correo: payload.correo,
+              edad: payload.edad,
+              ciudad: payload.ciudad
+            });
+            const resp = await fetch(`${GOOGLE_SCRIPT_URL}?${params.toString()}`, {
+              method: "GET",
+              cache: "no-store"
             });
             result = await resp.json();
           } else {
